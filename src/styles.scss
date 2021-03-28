@@ -1,0 +1,12 @@
+$select-box-removing-color: red;
+$range-start-border: false;
+$selected-item-border: 10px;
+$selected-item-border-size: 10px;
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import "~ngx-drag-to-select/scss/ngx-drag-to-select";
+
+html, body {
+
+	max-width: 100%;
+    overflow-x: hidden;
+}

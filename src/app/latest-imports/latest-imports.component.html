@@ -1,0 +1,21 @@
+<div id="wrapper">
+    <!-- <div class="grid"> -->
+    <dts-select-container class="drag-area grid" 
+    [(selectedItems)]="selectedPhotos" 
+    (select)="selected($event)" 
+    (selectionEnded)="selectionEnded($event)" 
+    (mousedown)="dragPhotos($event)" (mouseup)="liftfreeze($event)"
+    
+>
+        
+        <img src="{{document.photoOrVideo}}" *ngFor="let document of photosArr" draggable="true" [dtsSelectItem]="document">
+     
+    </dts-select-container>
+   <!-- </div> -->
+    
+    <!-- <div class="selected-items">
+        <div>Selected</div>
+        <pre>{{ selectedPhotos | json }}</pre>
+    </div> -->
+
+</div>

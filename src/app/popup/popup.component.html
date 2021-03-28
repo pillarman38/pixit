@@ -1,0 +1,14 @@
+<form [formGroup]="albumForm" (ngSubmit)="onFormSubmit()">
+    <div #myModal class="container">
+    <div #content class="content">
+        <div id="albumnameinput">
+            <input type="text" id="albuminput" #albuminput formControlName="albuminput">
+            <div id="center">
+              <button type="submit" class="loginSignupBtns">Create</button>
+            </div>
+            
+          </div>
+    </div>
+  </div>
+  <div id="triangle"></div>
+</form>

@@ -1,0 +1,12 @@
+<div id="wrapper">
+    <div class="dropzone">
+    <div class="overlay-layer">
+        <label for="upload-photo">Browse...</label>
+          <input type="file" #fileDropRef id="fileDropRef" multiple (change)="handleDrop($event)" id="upload-photo">
+      </div>
+    </div>
+    <div *ngFor="let album of albumarr">
+      <p>{{album.photo}}</p>
+      <img src="{{album.photo}}" draggable="true" (dragstart)="drag($event)" id="drag1" width="88" height="31">
+    </div>
+  </div>

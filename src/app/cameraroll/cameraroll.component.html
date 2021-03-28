@@ -1,0 +1,12 @@
+<div id="wrapper">
+    <div *ngFor="let import of newImports; let i = index" class="arg">
+      <div class="column">
+        <div *ngIf="import.video == 1">
+          <img src="{{import.videoThumbnail}}" (dragover)="allowDrop($event)" draggable="true" class="cover ele ele{{i}}" id="ele{{i}}" (click)="click($event)" (dblclick)="method2($event)">
+        </div>
+        <div *ngIf="import.video == 0">
+          <img src="{{import.photoOrVideo}}" (dragover)="allowDrop($event)" draggable="true" class="cover ele ele{{i}}" id="ele{{i}}" (click)="click($event)" (dblclick)="method2($event)">
+        </div>
+      </div>
+  </div>
+</div>

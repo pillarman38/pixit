@@ -1,0 +1,72 @@
+#outlet {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+}
+#sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: rgb(240, 240,240);
+    position: fixed;
+    float: left;
+    opacity: 0.8;
+    /* z-index: -1; */
+}
+.button {
+    /* display: block; */
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    text-align: center;
+    /* vertical-align: middle; */
+    line-height: 45px;  
+    color: black;
+    cursor: pointer;
+    /* background-color: green; */
+	box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+}
+.linkSpace{
+    /* border: 2px solid black; */
+    width: 100%;
+    height: 5%;
+}
+.cen {
+    text-align: center;
+}
+#albumDiv {
+    margin-top: 10px;
+    border: 2px solid black;
+}
+#div1, #div2 {
+    float: left;
+    width: 100px;
+    height: 35px;
+    margin: 150px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#line {
+    width: 100%; 
+    height: 30px; 
+    padding-left: 25px;
+}
+#line.p {
+    vertical-align: baseline;
+}
+#plusSign{
+    position: fixed;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+    height: 20px;
+    bottom: 0px;
+}
+#albumnameinput {
+    position: fixed;
+    bottom: 0px;
+    margin-left: 50px;
+}
+#room {
+    width: 200px;
+    height: 200px;
+}

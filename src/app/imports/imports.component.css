@@ -1,0 +1,15 @@
+
+#wrapper {
+    margin-left: 20%;
+}
+label {
+    cursor: pointer;
+    border: 2px solid black;
+    /* Style as you please, it will become the visible UI component. */
+ }
+ 
+ #upload-photo {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+ }

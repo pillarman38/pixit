@@ -1,6 +1,7 @@
 #outlet {
     margin: 0; padding: 0;
     width: 100%; height: 100%;
+
 }
 #sidebar {
     width: 20%;
@@ -69,4 +70,21 @@
 #room {
     width: 200px;
     height: 200px;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    margin-left: 20%;
+    background-color: rgb(240, 240,240);
+    width: 100%;
+    z-index: 10;
+    border: 2px solid green;
+}
+.trash {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgb(240, 240,240);
+    width: 100%;
+    border: 2px solid green;
 }

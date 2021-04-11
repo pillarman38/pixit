@@ -18,9 +18,10 @@
 img{
   max-width: 70%;
   max-height: 70%;
-
+  transform: translate(-50%, -50%);
   position: relative;
-
+  left: 50%;
+  top: 50%;
 }
 // .selected{
 //     border: 5px solid rgb(232, 209, 145);

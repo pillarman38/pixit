@@ -98,22 +98,31 @@ drag(ev) {
 
 drop(ev) {
   console.log(ev);
-  
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   console.log("yay", ev);
   var unique = this.global.selectedArr;
-  
   console.log(unique);
-  var postData = {
-    album: ev.target.innerHTML,
-    photos: unique
+  
+  for(var i = 0; i < unique.length; i++) {
+    if(ev.target.innerHTML != "Trash") {
+      this.global.selectedArr[i]['albumName'] = ev.target.innerHTML
+    }
+    
   }
-console.log(postData);
 
-  this.http.post('http://192.168.1.86:4012/api/mov/albummodifier', postData).subscribe((res) => {
-    console.log(res);
-  })
+  var postData = unique
+
+  console.log(postData);
+  if(ev.target.innerHTML == "Trash") {
+    this.http.post('http://192.168.1.86:4012/api/mov/trashdump', postData).subscribe((res) => {
+      console.log(res);
+    })
+  } else {
+    this.http.post('http://192.168.1.86:4012/api/mov/albummodifier', postData).subscribe((res) => {
+      console.log(res);
+    })
+  }
 }
 albumSelect(e) {
   this.global.selectedAlbum = e.target.innerHTML
@@ -126,6 +135,10 @@ createAlbum(e) {
   console.log(e);
   this.global.plusButtonClicked = true
   this.global.change()
+}
+onChange(e) {
+  console.log(e['srcElement']['value']);
+  this.global.updatePicSize(e['srcElement']['value'])
 }
   ngOnInit() {
     this.http.get('http://192.168.1.86:4012/api/mov/getalbums').subscribe((res: any) => {
@@ -140,6 +153,9 @@ createAlbum(e) {
     })
     this.global.albumUpdater.subscribe((res) => {
       this.albumarr = res
+    })
+    this.global.statusBarUpdate.subscribe((res) => {
+      console.log(res);
     })
   }
 }

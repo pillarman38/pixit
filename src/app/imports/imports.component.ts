@@ -48,15 +48,18 @@ export class ImportsComponent implements OnInit {
     // if(uploadObj['type'] == "mov" || uploadObj['type'] == "mp4" || uploadObj['type'] == "MOV") {
     //   this.arrOfVideos.push(uploadObj)
     // }
+    // this.http.get(`http://192.168.1.86:4012/api/mov/truncate`).subscribe((res) => {
+    //   console.log(res);
+    // })
     this.http.post("http://192.168.1.86:4012/api/mov/uploadmedia", formData,{ reportProgress: true, observe: 'events' }).subscribe((data: any) => {
         console.log(data)
         if (data.type === HttpEventType.Response) {
           console.log('Upload complete');
-      }
-      if (data.type === HttpEventType.UploadProgress) {
-          const percentDone = Math.round(100 * data.loaded / data.total);
-          console.log('Progress ' + percentDone + '%');
-      }
+        }
+        if (data.type === HttpEventType.UploadProgress) {
+            const percentDone = Math.round(100 * data.loaded / data.total);
+            console.log('Progress ' + percentDone + '%');
+        }
         // const percentDone = Math.round(100 * data.loaded / data.total);
         
         // console.log(percentDone);

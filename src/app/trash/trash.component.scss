@@ -7,27 +7,24 @@
     // z-index: -1;
     overflow: scroll;
     position: absolute;
-}
-.column {
+  }
+  .column {
     position: relative;
     float: left;
     width: 25%;
     margin: 10px;
     height: 300px;
-}
-img{
+  }
+  img{
     max-width: 70%;
     max-height: 70%;
-
+  
     position: relative;
+  
+  }
 
-}
-// .selected{
-//     border: 5px solid rgb(232, 209, 145);
-//     border-radius: 5px;
-// }
-
-.grid {
+  
+  .grid {
     display: grid;
     width: 80%;
     grid-template-columns: 1fr 1fr 1fr;
@@ -35,26 +32,21 @@ img{
     row-gap: 10px;
   }
   
-//   .drag-area {
-//     padding: 20px;
-//     border: 1px dashed #03a9f4;
-//     margin-bottom: 20px;
-//   }
-  
+
   mat-card {
     border: 1px solid transparent;
   }
   
-//   .selected-items {
-//     border: 5px solid rgba(251, 255, 25, 0);
-  
-//     div {
-//       background-color: rgba(179, 255, 0, 0);
-//       padding: 8px;
-//     }
-  
-//     pre {
-//       padding: 10px;
-//     }
-//   }
-  
+  #header {
+      width: 80%;
+      height: 25px;
+      background-color: grey;
+  }
+  #emptyTrashButton {
+      float: right;
+  }
+  #undoBtn{
+    width: 25px;
+    height: 25px;
+    float: left;
+  }

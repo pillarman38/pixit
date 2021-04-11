@@ -1,21 +1,27 @@
-<div id="wrapper">
+<div id="wrapper" class="scrollable" (scroll)="container.update()">
     <!-- <div class="grid"> -->
-    <dts-select-container class="drag-area grid" 
-    [(selectedItems)]="selectedPhotos" 
-    (select)="selected($event)" 
-    (selectionEnded)="selectionEnded($event)" 
-    (mousedown)="dragPhotos($event)" (mouseup)="liftfreeze($event)"
-    
->
+        <dts-select-container #container="dts-select-container" 
+        class="drag-area scrollable grid" 
+        [(selectedItems)]="selectedPhotos" 
+        (select)="selected($event)" 
+        (selectionEnded)="selectionEnded($event)" 
+        (mouseup)="liftfreeze($event)">
+        <div *ngFor="let document of photosArr" >
         
-        <img src="{{document.photoOrVideo}}" *ngFor="let document of photosArr" draggable="true" [dtsSelectItem]="document">
-     
-    </dts-select-container>
-   <!-- </div> -->
+        <div *ngIf="document.video === 0">
+                <img src="{{document.photoOrVideo}}"  draggable="true" [dtsSelectItem]="document" class="imageChanger" #imageChanger>
+            </div>
+            <div *ngIf="document.video === 1">
+                <img src="{{document.videoThumbnail}}" draggable="true" [dtsSelectItem]="document" class="imageChanger" #imageChanger>
+            </div>
+        </div>
+    
+        </dts-select-container>
+     <!-- </div> -->
     
     <!-- <div class="selected-items">
         <div>Selected</div>
         <pre>{{ selectedPhotos | json }}</pre>
     </div> -->
-
-</div>
+  
+  </div>

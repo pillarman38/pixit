@@ -6,27 +6,30 @@
 
   <div class="linkSpace">
     <a routerLink="latestimports" class="button" routerLinkActive="active">Latest Imports</a>
-    </div>  
+  </div>  
 
-<div class="linkSpace">
-<a routerLink="cameraroll" class="button" routerLinkActive="active">Photos</a>
-</div>
+  <div class="linkSpace">
+    <a routerLink="cameraroll" class="button" routerLinkActive="active">Photos</a>
+  </div>
 
-<div class="linkSpace">
-  <a routerLink="trash" class="button" routerLinkActive="active">Trash</a>
+  <div class="linkSpace">
+    <a routerLink="trash" class="button" routerLinkActive="active" (drop)="drop($event)" (dragover)="allowDrop($event)">Trash</a>
   </div>
   
-    <div id="line">
-      <p>Albums</p>
-    </div>
+  <div id="line">
+    <p>Albums</p>
+  </div>
+
 <div *ngFor="let album of albumarr">
   <div class="linkSpace">
     <div (click)="albumSelect($event)" class="button" routerLinkActive="active" (drop)="drop($event)" (dragover)="allowDrop($event)">{{album.name}}</div>
   </div>
 </div>
+
 <div *ngIf="popup">
   <app-popup class="pop"></app-popup>
 </div>
+
 <div *ngIf="!popup">
 
 </div>
@@ -34,8 +37,13 @@
 <div id="plusSign" (click)="createAlbum($event)">
   +
 </div>
-
+<div id="footer">
+  <div class="trash">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" (input)="onChange($event)">
+    </div>
 </div>
+</div>
+
 <div id="outlet">
   <router-outlet></router-outlet>
 </div>

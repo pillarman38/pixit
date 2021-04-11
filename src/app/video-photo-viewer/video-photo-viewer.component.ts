@@ -7,10 +7,11 @@ import { GlobalInfoService } from '../global-info.service';
   styleUrls: ['./video-photo-viewer.component.css']
 })
 export class VideoPhotoViewerComponent implements OnInit {
-photo
+  photo
   constructor(private global: GlobalInfoService) { }
 
   ngOnInit(): void {
     this.photo = this.global.viewedphoto
+    console.log(this.photo);
   }
 }

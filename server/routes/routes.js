@@ -18,10 +18,25 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({storage: storage})
-
+router.get('truncate', (req, res) => {
+    models.truncateImportable((err, res) => {
+        if(err) {
+            res.send(err)
+        } else {
+            res.send(res)
+        }
+    })
+})
 router.post('/uploadmedia', upload.any(), (req, res) => {
     console.log(req.files[0]);
     var video = false
+    // models.truncateImportable((err, res) => {
+    //     if(err){
+    //         console.log(err)
+    //     } else {
+    //         console.log(res)
+    //     }
+    // })
     if(req.files[0]['mimetype'] == "video/quicktime") {
         models.upload({
         originalname: req.files[0]['originalname'],
@@ -60,7 +75,7 @@ router.post('/uploadmedia', upload.any(), (req, res) => {
 router.post('/albummodifier', upload.any(), (req, res) => {
     var video = false
     console.log("BODY: HERE: ", req.body);
-        models.modify( req.body, (err, results)=>{
+        models.modify(req.body, (err, results)=>{
         if(err){
             res.send(err)
         } else {
@@ -101,6 +116,37 @@ router.get('/getalbums', (req, res) => {
         }
     })
 })
+
+router.get('/getTrash', (req, res) => {
+    models.trashGetter((err, results)=>{
+        if(err){
+            res.send(err)
+        } else {
+            res.send(results)
+        }
+    })
+})
+
+router.post('/emptyTrash', (req, res) => {
+    models.emptyTrash(req.body, (err, results)=>{
+        if(err){
+            res.send(err)
+        } else {
+            res.send(results)
+        }
+    })
+})
+
+router.post('/trashdump', (req, res) => {
+    models.trashdump(req.body, (err, results)=>{
+        if(err){
+            res.send(err)
+        } else {
+            res.send(results)
+        }
+    })
+})
+
 router.get('/getlatestimports', (req, res) => {
     models.importGetter((err, results)=>{
         if(err){
@@ -110,4 +156,25 @@ router.get('/getlatestimports', (req, res) => {
         }
     })
 })
+
+router.get('/getallphotos', (req, res) => {
+    models.getallphotos((err, results)=>{
+        if(err){
+            res.send(err)
+        } else {
+            res.send(results)
+        }
+    })
+})
+
+router.post('/undo', (req, res) => {
+    models.undo(req.body, (err, results)=>{
+        if(err){
+            res.send(err)
+        } else {
+            res.send(results)
+        }
+    })
+})
+
 module.exports = router

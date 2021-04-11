@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,12 @@ export class GlobalInfoService {
   photosArr: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
   currentMsg = this.photosArr.asObservable()
   showModal$ = new BehaviorSubject<boolean>(false);
+  photoSize: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
+  changePhotoThumbSize = this.photoSize.asObservable()
   
+  statusBarUpdater = new BehaviorSubject<boolean>(false)
+  statusBarUpdate = this.statusBarUpdater.asObservable()
+
   constructor(private http: HttpClient, private router: Router) { }
 
   reloadData(){
@@ -36,5 +42,8 @@ export class GlobalInfoService {
   }
   updateAlbum(res) {
     this.newAlbumUpdater.next(res)
+  }
+  updatePicSize(res) {
+    this.photoSize.next(res)
   }
 }
